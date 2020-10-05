@@ -8,15 +8,26 @@ var timeEl = document.querySelector("h1");
 var mainEl = document.querySelector("main");
 
 //Set a button
-// var body = document.body;
-// var btn = createElement("button");
-// btn.textContent = "Hit to Explode!";
-// body.appendChild(btn);
+var body = document.body;
+var div = document.createElement("div");
+var btn = document.createElement("button");
+btn.textContent = "Hit to Explode!";
+body.prepend(div);
+div.appendChild(btn);
+div.style.textAlign = "center";
+btn.style.fontSize = "30px";
+btn.style.borderRadius = "5px";
+btn.style.marginTop = "100px";
+btn.style.padding = "20px";
+btn.style.color = "greenyellow";
+btn.style.backgroundColor = "red";
 
+btn.addEventListener("click", prepareRead);
 //starting index iterating through the words array
 var secondsLeft = 4;
 
 function prepareRead() {
+  btn.style.display = "none";
   // Create the countdown timer.
   var timerInterval = setInterval(function () {
     secondsLeft--;
@@ -32,6 +43,7 @@ function prepareRead() {
 function speedRead() {
   // Print words to the screen one at a time.
   mainEl.style.display = "inline";
+  mainEl.style.textAlign = "left";
   var i = 0;
   var printWords = setInterval(function () {
     var p = document.createElement("p");
@@ -48,4 +60,4 @@ function speedRead() {
   }, 100);
 }
 
-prepareRead();
+// prepareRead();
